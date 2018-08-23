@@ -102,7 +102,7 @@ module.exports = function (h) {
         columns.push(h(
           'td',
           { 'class': _this.columnClass(column) },
-          [h('div',{'class':"chikyu_td_wrapper_div"},[rowTemplate ? rowTemplate({ row: row, column: column, index: index }) : _this.render(row, column, index, h)])]
+          [h('div',{'class':"chikyu_td_child_div"},[rowTemplate ? rowTemplate({ row: row, column: column, index: index }) : _this.render(row, column, index, h)])]
         ));
       });
 
