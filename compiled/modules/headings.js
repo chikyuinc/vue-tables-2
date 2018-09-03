@@ -23,7 +23,9 @@ module.exports = function (h) {
           "span",
           { "class": "VueTables__heading", attrs: { title: this.getHeadingTooltip(column, h) }
           },
-          [this.getHeading(column, h)]
+          [h("div",{"class":"chikyu_th_child_div"},[
+            this.getHeading(column, h)
+          ])
         ), sortControl.call(this, column)]
       ));
     }.bind(_this));
