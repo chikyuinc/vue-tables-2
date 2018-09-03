@@ -20,11 +20,11 @@ module.exports = function (h) {
 
           "class": this.sortableClass(column) },
         [h(
-          "span",
-          { "class": "VueTables__heading", attrs: { title: this.getHeadingTooltip(column, h) }
+          "div",
+          { "class": "VueTables__heading chikyu_th_child", attrs: { title: this.getHeadingTooltip(column, h) }
           },
-          [h("div",{"class":"chikyu_th_child"},[this.getHeading(column, h)])]
-        ), sortControl.call(this, column)]
+          [this.getHeading(column, h),sortControl.call(this, column)]
+        )]
       ));
     }.bind(_this));
 
