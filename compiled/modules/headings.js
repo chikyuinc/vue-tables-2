@@ -3,6 +3,14 @@
 module.exports = function (h) {
   var _this = this;
 
+  var getChikyuSortClassFunc = function (_this,column) {
+    var cls = "";
+    if (column == _this.orderBy.column) {
+      cls += _this.orderBy.ascending == 1 ? "chikyuTableSortButtonDown" : "chikyuTableSortButtonUp";
+    }
+    return cls;
+  }
+
   return function (right) {
     var sortControl = require('./sort-control')(h, right);
 
@@ -23,7 +31,7 @@ module.exports = function (h) {
           "div",
           { "class": "VueTables__heading chikyu_th_child", attrs: { title: this.getHeadingTooltip(column, h) }
           },
-          [this.getHeading(column, h),sortControl.call(this, column)]
+          [h("div",{"class": getChikyuSortClassFunc(this,column)}),this.getHeading(column, h)]
         )]
       ));
     }.bind(_this));
